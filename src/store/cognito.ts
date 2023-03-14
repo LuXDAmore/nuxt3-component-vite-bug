@@ -1,9 +1,9 @@
 // AWS Cognito - Auth
-import { Auth } from '@aws-amplify/auth';
-import { Amplify } from '@aws-amplify/core';
+// import { Auth } from '@aws-amplify/auth';
+// import { Amplify } from '@aws-amplify/core';
 
 // Built-in
-import { useCognitoConfig, useRuntimeConfig } from '#imports';
+import { useCognitoConfig } from '#imports';
 
 // Store
 import { acceptHMRUpdate, defineStore } from 'pinia';
@@ -33,158 +33,158 @@ const useCognitoStore = defineStore(
     'cognitoStore',
     {
         actions: {
-            async answerCustomChallenge(
-                {
-                    user,
-                    answer,
-                }: {
-                    user: string,
-                    answer: string,
-                }
-            ) : Promise<void> {
+            // async answerCustomChallenge(
+            //     {
+            //         user,
+            //         answer,
+            //     }: {
+            //         user: string,
+            //         answer: string,
+            //     }
+            // ) : Promise<void> {
 
-                try {
+            //     try {
 
-                    const userData = await Auth.sendCustomChallengeAnswer(
-                        user,
-                        answer
-                    );
+            //         const userData = await Auth.sendCustomChallengeAnswer(
+            //             user,
+            //             answer
+            //         );
 
-                    if( userData )
-                        this.setUser( userData );
+            //         if( userData )
+            //             this.setUser( userData );
 
-                } catch( exception ) {
+            //     } catch( exception ) {
 
-                    console.error(
-                        { exception }
-                    );
+            //         console.error(
+            //             { exception }
+            //         );
 
-                }
+            //     }
 
-            },
-            async changePassword(
-                {
-                    username,
-                    code,
-                    newPassword,
-                }: {
-                    username: string,
-                    code: string,
-                    newPassword: string,
-                }
-            ) : Promise<void> {
+            // },
+            // async changePassword(
+            //     {
+            //         username,
+            //         code,
+            //         newPassword,
+            //     }: {
+            //         username: string,
+            //         code: string,
+            //         newPassword: string,
+            //     }
+            // ) : Promise<void> {
 
-                try {
+            //     try {
 
-                    await Auth.forgotPasswordSubmit(
-                        username,
-                        code,
-                        newPassword
-                    );
+            //         await Auth.forgotPasswordSubmit(
+            //             username,
+            //             code,
+            //             newPassword
+            //         );
 
-                } catch( exception ) {
+            //     } catch( exception ) {
 
-                    console.error(
-                        { exception }
-                    );
+            //         console.error(
+            //             { exception }
+            //         );
 
-                }
+            //     }
 
-            },
-            async confirmSignUp(
-                {
-                    user,
-                    confirmationCode,
-                }: {
-                    user: string,
-                    confirmationCode: string,
-                }
-            ) : Promise<void> {
+            // },
+            // async confirmSignUp(
+            //     {
+            //         user,
+            //         confirmationCode,
+            //     }: {
+            //         user: string,
+            //         confirmationCode: string,
+            //     }
+            // ) : Promise<void> {
 
-                try {
+            //     try {
 
-                    await Auth.confirmSignUp(
-                        user,
-                        confirmationCode
-                    );
+            //         await Auth.confirmSignUp(
+            //             user,
+            //             confirmationCode
+            //         );
 
-                } catch( exception ) {
+            //     } catch( exception ) {
 
-                    console.error(
-                        { exception }
-                    );
+            //         console.error(
+            //             { exception }
+            //         );
 
-                }
+            //     }
 
-            },
-            async federatedSignIn( provider?: string ): Promise<void> {
+            // },
+            // async federatedSignIn( provider?: string ): Promise<void> {
 
-                const { cognito: { provider: cognitoProvider } } = useRuntimeConfig();
+            //     const { cognito: { provider: cognitoProvider } } = useRuntimeConfig();
 
-                try {
+            //     try {
 
-                    await Auth.federatedSignIn(
-                        { provider: provider || cognitoProvider }
-                    );
+            //         await Auth.federatedSignIn(
+            //             { provider: provider || cognitoProvider }
+            //         );
 
-                } catch( exception ) {
+            //     } catch( exception ) {
 
-                    console.error(
-                        { exception }
-                    );
+            //         console.error(
+            //             { exception }
+            //         );
 
-                }
+            //     }
 
-            },
-            async fetchSessionUserAndToken(): Promise<void> {
+            // },
+            // async fetchSessionUserAndToken(): Promise<void> {
 
-                try {
+            //     try {
 
-                    const response = await Auth.currentAuthenticatedUser();
+            //         const response = await Auth.currentAuthenticatedUser();
 
-                    if( ! response )
-                        throw new Error( 'Empty response from {currentAuthenticatedUser} method' );
+            //         if( ! response )
+            //             throw new Error( 'Empty response from {currentAuthenticatedUser} method' );
 
-                    const { signInUserSession, ... user } = response;
+            //         const { signInUserSession, ... user } = response;
 
-                    if( signInUserSession ) {
+            //         if( signInUserSession ) {
 
-                        this.setSession( signInUserSession );
+            //             this.setSession( signInUserSession );
 
-                        const token = signInUserSession.getIdToken().getJwtToken();
+            //             const token = signInUserSession.getIdToken().getJwtToken();
 
-                        if( token )
-                            this.setToken( token );
+            //             if( token )
+            //                 this.setToken( token );
 
-                    }
+            //         }
 
-                    if( user )
-                        this.setUser( user );
+            //         if( user )
+            //             this.setUser( user );
 
-                } catch( exception ) {
+            //     } catch( exception ) {
 
-                    console.error(
-                        { exception }
-                    );
+            //         console.error(
+            //             { exception }
+            //         );
 
-                }
+            //     }
 
-            },
-            async forgotPassword( username: string ): Promise<void> {
+            // },
+            // async forgotPassword( username: string ): Promise<void> {
 
-                try {
+            //     try {
 
-                    await Auth.forgotPassword( username );
+            //         await Auth.forgotPassword( username );
 
-                } catch( exception ) {
+            //     } catch( exception ) {
 
-                    console.error(
-                        { exception }
-                    );
+            //         console.error(
+            //             { exception }
+            //         );
 
-                }
+            //     }
 
-            },
+            // },
             initStore(): void {
 
                 if( this.isInitialized )
@@ -192,220 +192,222 @@ const useCognitoStore = defineStore(
 
                 const configuration = useCognitoConfig();
 
+                console.info( configuration );
+
                 // AWS settings
-                Amplify.I18n?.setLanguage( configuration.I18n.language );
-                Amplify.configure( configuration );
+                // Amplify.I18n?.setLanguage( configuration.I18n.language );
+                // Amplify.configure( configuration );
 
                 // Set data
-                this.setConfiguration( configuration );
-                this.setInitialized( true );
+                // this.setConfiguration( configuration );
+                // this.setInitialized( true );
 
             },
-            async initStoreFetchSessionUserTokenAndCheckFederatedSignIn(): Promise<void> {
+            // async initStoreFetchSessionUserTokenAndCheckFederatedSignIn(): Promise<void> {
 
-                try {
+            //     try {
 
-                    this.initStore();
+            //         this.initStore();
 
-                    // Check if user was already logged-in
-                    await this.fetchSessionUserAndToken();
+            //         // Check if user was already logged-in
+            //         await this.fetchSessionUserAndToken();
 
-                    // If not logged, show the SSO interface
-                    if( this.isLoggedIn )
-                        ! this.$initialized && this.refreshTokenIntervalCreate();
-                    else
-                        await this.federatedSignIn();
+            //         // If not logged, show the SSO interface
+            //         if( this.isLoggedIn )
+            //             ! this.$initialized && this.refreshTokenIntervalCreate();
+            //         else
+            //             await this.federatedSignIn();
 
-                    this.$initialized = true;
+            //         this.$initialized = true;
 
-                } catch( exception ) {
+            //     } catch( exception ) {
 
-                    console.error(
-                        { exception }
-                    );
+            //         console.error(
+            //             { exception }
+            //         );
 
-                }
+            //     }
 
-            },
-            refreshTokenIntervalCreate() {
+            // },
+            // refreshTokenIntervalCreate() {
 
-                // Destroy Interval
-                this.refreshTokenIntervalDestroy();
+            //     // Destroy Interval
+            //     this.refreshTokenIntervalDestroy();
 
-                // Refresh Time: 1_800_000 ~= 30 min
-                const REFRESH_DELAY = 1_400_000;
+            //     // Refresh Time: 1_800_000 ~= 30 min
+            //     const REFRESH_DELAY = 1_400_000;
 
-                if( process.env.NODE_ENV !== 'production' ) {
+            //     if( process.env.NODE_ENV !== 'production' ) {
 
-                    console.warn(
-                        'AuthToken refresh available in:',
-                        REFRESH_DELAY,
-                        'milliseconds'
-                    );
+            //         console.warn(
+            //             'AuthToken refresh available in:',
+            //             REFRESH_DELAY,
+            //             'milliseconds'
+            //         );
 
-                }
+            //     }
 
-                // Create interval
-                this.$intervalId = Number(
-                    setInterval(
-                        async() => {
+            //     // Create interval
+            //     this.$intervalId = Number(
+            //         setInterval(
+            //             async() => {
 
-                            await this.fetchSessionUserAndToken();
+            //                 await this.fetchSessionUserAndToken();
 
-                            if( process.env.NODE_ENV !== 'production' )
-                                console.warn( '[AuthToken refreshed]' );
+            //                 if( process.env.NODE_ENV !== 'production' )
+            //                     console.warn( '[AuthToken refreshed]' );
 
-                        },
-                        REFRESH_DELAY
-                    )
-                );
+            //             },
+            //             REFRESH_DELAY
+            //         )
+            //     );
 
-            },
-            refreshTokenIntervalDestroy() {
+            // },
+            // refreshTokenIntervalDestroy() {
 
-                // Clean interval
-                if( ! this.$intervalId )
-                    return;
+            //     // Clean interval
+            //     if( ! this.$intervalId )
+            //         return;
 
-                clearInterval( this.$intervalId );
+            //     clearInterval( this.$intervalId );
 
-                this.$intervalId = undefined;
+            //     this.$intervalId = undefined;
 
-            },
-            async registerUser(
-                {
-                    username,
-                    password,
-                    attributes,
-                    validationData,
-                }: {
-                    username: string,
-                    password: string,
-                    attributes: Array<string>,
-                    validationData: object,
-                }
-            ): Promise<void> {
+            // },
+            // async registerUser(
+            //     {
+            //         username,
+            //         password,
+            //         attributes,
+            //         validationData,
+            //     }: {
+            //         username: string,
+            //         password: string,
+            //         attributes: Array<string>,
+            //         validationData: object,
+            //     }
+            // ): Promise<void> {
 
-                try {
+            //     try {
 
-                    const userData = await Auth.signUp(
-                        {
-                            attributes,
-                            autoSignIn: { enabled: true },
-                            password,
-                            username,
-                            validationData,
-                        }
-                    );
+            //         const userData = await Auth.signUp(
+            //             {
+            //                 attributes,
+            //                 autoSignIn: { enabled: true },
+            //                 password,
+            //                 username,
+            //                 validationData,
+            //             }
+            //         );
 
-                    if( userData )
-                        this.setUser( userData );
+            //         if( userData )
+            //             this.setUser( userData );
 
-                } catch( exception ) {
+            //     } catch( exception ) {
 
-                    console.error(
-                        { exception }
-                    );
+            //         console.error(
+            //             { exception }
+            //         );
 
-                }
+            //     }
 
-            },
-            async resendConfirmation( username: string ): Promise<void> {
+            // },
+            // async resendConfirmation( username: string ): Promise<void> {
 
-                try {
+            //     try {
 
-                    await Auth.resendSignUp( username );
+            //         await Auth.resendSignUp( username );
 
-                } catch( exception ) {
+            //     } catch( exception ) {
 
-                    console.error(
-                        { exception }
-                    );
+            //         console.error(
+            //             { exception }
+            //         );
 
-                }
+            //     }
 
-            },
-            setConfiguration( value: object|null ): void {
+            // },
+            // setConfiguration( value: object|null ): void {
 
-                this.configuration = { ... value } as object;
+            //     this.configuration = { ... value } as object;
 
-            },
-            setInitialized( value?: boolean ): void {
+            // },
+            // setInitialized( value?: boolean ): void {
 
-                this.isInitialized = !! value;
+            //     this.isInitialized = !! value;
 
-            },
-            setSession( value?: object ): void {
+            // },
+            // setSession( value?: object ): void {
 
-                this.session = { ... value } as cognitoSession;
+            //     this.session = { ... value } as cognitoSession;
 
-            },
-            setToken( value?: string ): void {
+            // },
+            // setToken( value?: string ): void {
 
-                this.token = value || '';
+            //     this.token = value || '';
 
-            },
-            setUser( value?: object ): void {
+            // },
+            // setUser( value?: object ): void {
 
-                this.user = { ... value } as cognitoUser;
+            //     this.user = { ... value } as cognitoUser;
 
-            },
-            async signInUser(
-                {
-                    username,
-                    password,
-                    validationData,
-                }: {
-                    username: string,
-                    password: string,
-                    validationData: object,
-                }
-            ): Promise<void> {
+            // },
+            // async signInUser(
+            //     {
+            //         username,
+            //         password,
+            //         validationData,
+            //     }: {
+            //         username: string,
+            //         password: string,
+            //         validationData: object,
+            //     }
+            // ): Promise<void> {
 
-                try {
+            //     try {
 
-                    const userData = await Auth.signIn(
-                        {
-                            password,
-                            username,
-                            validationData,
-                        }
-                    );
+            //         const userData = await Auth.signIn(
+            //             {
+            //                 password,
+            //                 username,
+            //                 validationData,
+            //             }
+            //         );
 
-                    if( userData )
-                        this.setUser( userData );
+            //         if( userData )
+            //             this.setUser( userData );
 
-                } catch( exception ) {
+            //     } catch( exception ) {
 
-                    console.error(
-                        { exception }
-                    );
+            //         console.error(
+            //             { exception }
+            //         );
 
-                }
+            //     }
 
-            },
-            async signOut(): Promise<void> {
+            // },
+            // async signOut(): Promise<void> {
 
-                if( ! this.isLoggedIn )
-                    throw new Error( 'User not logged in.' );
+            //     if( ! this.isLoggedIn )
+            //         throw new Error( 'User not logged in.' );
 
-                this.setUser( {} );
-                this.setSession( {} );
-                this.setToken( '' );
+            //     this.setUser( {} );
+            //     this.setSession( {} );
+            //     this.setToken( '' );
 
-                try {
+            //     try {
 
-                    await Auth.signOut();
+            //         await Auth.signOut();
 
-                } catch( exception ) {
+            //     } catch( exception ) {
 
-                    console.error(
-                        { exception }
-                    );
+            //         console.error(
+            //             { exception }
+            //         );
 
-                }
+            //     }
 
-            },
+            // },
         },
         getters: {
             // User Session
