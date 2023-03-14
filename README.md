@@ -65,9 +65,9 @@ ______________
 Step to reproduce:
 
 - Install the project `yarn install`, with nuxt@3.1.2 `yarn add --exact nuxt@3.1.2`;
-- Run `yarn dev` (everything is working);
+- Run `yarn dev` (*everything is working*) [[image 1](./NuxtVersion3.1.2.jpg "Nuxt 3.1.2")];
 - Upgrade nuxt `npx nuxi upgrade --force` (**to version 3.2.3**);
-- Run `yarn dev`, the page appear blank (*"Requested module 'nuxt/@fs/C:/Users/luxdamore/Desktop/nuxt3-component-vite-bug/node_modules/.vite/deps/vue.js?v=14ad53f6' does not provide an export named 'Component'"* error appear in the browser console).
+- Run `yarn dev`, the page appear blank (*"Requested module 'nuxt/@fs/C:/Users/luxdamore/Desktop/nuxt3-component-vite-bug/node_modules/.vite/deps/vue.js?v=14ad53f6' does not provide an export named 'Component'"* error appear in the browser console) [[image 2](./NuxtVersion^3.2.3.jpg "Nuxt ^3.2.3")];
 
 ## BUG Images
 
