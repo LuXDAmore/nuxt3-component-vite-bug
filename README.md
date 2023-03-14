@@ -71,7 +71,9 @@ Step to reproduce:
 ## BUG Images
 
 - Nuxt Version 3.1.2:
+
 ![Nuxt 3.1.2](./NuxtVersion3.1.2.jpg "Nuxt 3.1.2")
 
 - Nuxt Version ^3.2.3:
+
 ![Nuxt ^3.2.3](./NuxtVersion^3.2.3.jpg "Nuxt ^3.2.3")
