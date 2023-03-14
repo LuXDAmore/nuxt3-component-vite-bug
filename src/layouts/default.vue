@@ -165,9 +165,9 @@
                       }
                       , sidebarMenu = [
                           {
-                              key: 'test',
-                              label: 'Test',
-                              slug: '/test',
+                              key: 'page-1',
+                              label: 'Page 1',
+                              slug: '/page-1',
                           },
                       ]
                 ;
