@@ -23,23 +23,59 @@
         "experimentalDecorators": true,
         "sourceMap": true,
         "noImplicitAny": false,
-        "baseUrl": ".",
+        "baseUrl": "./src",
         "paths": {
-            "~/*": [
-                "./src/*"
+            "~~": [
+                "."
             ],
             "~~/*": [
                 "./*"
             ],
-            "@/*": [
-                "./src/*"
+            "@@": [
+                "."
             ],
             "@@/*": [
                 "./*"
             ],
-            "#imports": [
-                "src/.nuxt/imports"
+            "~": [
+                "."
             ],
+            "~/*": [
+                "./*"
+            ],
+            "@": [
+                "."
+            ],
+            "@/*": [
+                "./*"
+            ],
+            "assets": [
+                "assets"
+            ],
+            "assets/*": [
+                "assets/*"
+            ],
+            "public": [
+                "public"
+            ],
+            "public/*": [
+                "public/*"
+            ],
+            "./runtimeConfig": [
+                "./runtimeConfig"
+            ],
+            "#imports": [
+                ".nuxt/imports"
+            ],
+            "#build": [
+                ".nuxt"
+            ],
+            "#build/*": [
+                ".nuxt/*"
+            ],
+            "#components": [
+                ".nuxt/components"
+            ]
         },
         "types": [
             "@types/node",

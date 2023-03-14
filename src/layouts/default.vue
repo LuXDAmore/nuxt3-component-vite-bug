@@ -165,19 +165,9 @@
                       }
                       , sidebarMenu = [
                           {
-                              key: 'affidamenti',
-                              label: 'Affidamenti',
-                              slug: '/affidamenti',
-                          },
-                          {
-                              key: 'lotti',
-                              label: 'Lotti',
-                              slug: '/lotti',
-                          },
-                          {
-                              key: 'anagrafica',
-                              label: 'Anagrafica',
-                              slug: '/anagrafica',
+                              key: 'test',
+                              label: 'Test',
+                              slug: '/test',
                           },
                       ]
                 ;
