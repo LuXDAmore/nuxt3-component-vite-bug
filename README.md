@@ -10,12 +10,6 @@ Make sure to install the dependencies:
     yarn install
 ```
 
-Configure Environment for development
-
-```bash
-    cp ./env/.env.development ./src/.env
-```
-
 ## Development Server
 
 Start the development server on [localhost](http://localhost:3000)
