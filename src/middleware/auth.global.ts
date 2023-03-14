@@ -1,27 +1,35 @@
 // Built-in
 import { defineNuxtRouteMiddleware } from '#imports';
 
-// UseStore
-import { useCognitoStore } from '~/store';
+// // UseStore
+// import { useCognitoStore } from '~/store';
 
-// Auth
+// // Auth
+// export default defineNuxtRouteMiddleware(
+//     async(): Promise<void> => {
+
+//         const { initStoreFetchSessionUserTokenAndCheckFederatedSignIn } = useCognitoStore();
+
+//         try {
+
+//             await initStoreFetchSessionUserTokenAndCheckFederatedSignIn();
+
+//         } catch( exception ) {
+
+//             console.info(
+//                 { exception }
+//             );
+
+//         }
+
+//     }
+// );
+
+// Middleware
 export default defineNuxtRouteMiddleware(
-    async(): Promise<void> => {
+    () => {
 
-        const { initStoreFetchSessionUserTokenAndCheckFederatedSignIn } = useCognitoStore();
-
-        try {
-
-            await initStoreFetchSessionUserTokenAndCheckFederatedSignIn();
-
-        } catch( exception ) {
-
-            console.info(
-                { exception }
-            );
-
-        }
+        console.info( 'middleware' );
 
     }
 );
-
