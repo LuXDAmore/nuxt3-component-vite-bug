@@ -9,33 +9,33 @@ jobs:
 
       # Restore cache
       - restore_cache:
-          key: npm-cache-{{ checksum "package-lock.json" }}
+          key: yarn-cache-{{ checksum "yarn-lock.json" }}
 
       # Install dependencies
       - run:
           name: Install Dependencies
-          command: NODE_ENV=production npm
+          command: NODE_ENV=production yarn
 
       # Keep cache
       - save_cache:
-          key: npm-cache-{{ checksum "package-lock.json" }}
+          key: yarn-cache-{{ checksum "yarn-lock.json" }}
           paths:
             - "node_modules"
 
       # Lint
       - run:
           name: Lint
-          command: npm run lint
+          command: yarn lint
 
       # Tests
       - run:
           name: Tests
-          command: npm run jest
+          command: yarn test
 
       # Coverage
       - run:
           name: Coverage
-          command: npm run codecov
+          command: yarn codecov
 
       - store_test_results:
           path: test-results
