@@ -1,0 +1,52 @@
+// Vue 3 related mixins
+$deep: ":deep" !default;
+$slotted: ":slotted" !default;
+$global: ":global" !default;
+
+// Create 'deep' selector - Vue 3
+@mixin deep( $selectors, $base: $deep ) {
+
+    @each $selector in $selectors {
+
+        #{$base}(#{$selector}) {
+
+            @content;
+
+        }
+
+    }
+
+
+}
+
+// Create 'slotted' selector - Vue 3
+@mixin slotted( $selectors, $base: $slotted ) {
+
+    @each $selector in $selectors {
+
+        #{$base}(#{$selector}) {
+
+            @content;
+
+        }
+
+    }
+
+
+}
+
+// Create 'global' selector - Vue 3
+@mixin global( $selectors, $base: $global ) {
+
+    @each $selector in $selectors {
+
+        #{$base}(#{$selector}) {
+
+            @content;
+
+        }
+
+    }
+
+
+}

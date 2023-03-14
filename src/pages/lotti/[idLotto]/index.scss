@@ -1,0 +1,32 @@
+.single-lot {
+
+    .loading {
+
+        padding: 16px 24px;
+        animation: blinker 1s cubic-bezier( .5, 0, 1, 1 ) infinite alternate;
+
+    }
+
+    &__main-form {
+
+        &,
+        > * {
+
+            height: 100%;
+
+        }
+
+    }
+
+    @include deep( ".ant-layout-sider" ".ant-tabs.ant-tabs-card" ) {
+
+        padding: 16px 24px;
+
+    }
+    @include deep( ".ant-tabs.ant-tabs-card" ) {
+
+        background-color: var( --color-basecolor-3 );
+
+    }
+
+}

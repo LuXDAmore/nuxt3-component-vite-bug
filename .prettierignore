@@ -1,0 +1,27 @@
+public/
+docs/
+
+dist/
+build/
+docs/
+ssr/
+
+vendor/
+bower_components/
+node_modules/
+.vscode/
+.nuxt/
+.nuxt-*/
+.nuxt.*/
+
+*.min.*
+
+sw.js
+
+backup/
+
+components.d.ts
+
+# Nuxt typed routes
+generated
+__typed-router.ts

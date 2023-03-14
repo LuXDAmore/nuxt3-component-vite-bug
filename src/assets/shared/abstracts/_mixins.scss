@@ -1,0 +1,92 @@
+// Print values
+@mixin print-mapped-values( $text, $is-var: false, $map: () ) {
+
+    // Automation
+    @each $key, $row in $map {
+
+        @if is-map( $row ) {
+
+            @each $type, $value in $row {
+
+                @if $type == base {
+
+                    @if $is-var {
+
+                        --#{$text}-#{$key}: #{$value};
+
+                    } @else {
+
+                        #{$text}-#{$key}: #{$value};
+
+                    }
+
+                } @else {
+
+                    @if $is-var {
+
+                        --#{$text}-#{$key}-#{$type}: #{$value};
+
+                    } @else {
+
+                        #{$text}-#{$key}-#{$type}: #{$value};
+
+                    }
+
+                }
+
+            }
+
+        } @else {
+
+            @if $is-var {
+
+                --#{$text}-#{$key}: #{$row};
+
+            } @else {
+
+                #{$text}-#{$key}: #{$row};
+
+            }
+
+        }
+
+    }
+
+}
+
+// Used for printing / exporting values
+// Colors
+@mixin print-colors() {
+
+    @include print-mapped-values( "color", false, $colors );
+
+}
+@mixin print-colors-vars() {
+
+    @include print-mapped-values( "color", true, $colors );
+
+}
+
+// Fonts
+@mixin print-fonts() {
+
+    @include print-mapped-values( "font-family", false, $fonts );
+
+}
+@mixin print-fonts-vars() {
+
+    @include print-mapped-values( "font-family", true, $fonts );
+
+}
+
+// Breakpoints
+@mixin print-breakpoints() {
+
+    @include print-mapped-values( "breakpoint", false, $breakpoints );
+
+}
+@mixin print-breakpoints-vars() {
+
+    @include print-mapped-values( "breakpoint", true, $breakpoints );
+
+}

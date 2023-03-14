@@ -1,0 +1,427 @@
+// Ant overrides
+html {
+
+    // Ant Vars
+    --ant-primary-color: #{get-color( "primary" )} !important;
+    --ant-primary-6: #{get-color( "primary" )} !important;
+
+    background-color: #f6f7f8;
+
+    // Ant Styles
+    body {
+
+        color: #000 !important;
+        font-family: var( --font-family-system ) !important;
+
+    }
+
+    .ant-layout {
+
+        &,
+        .ant-layout-sider {
+
+            background-color: #fff !important;
+
+        }
+
+        .ant-layout-header {
+
+            height: 46px;
+            line-height: 46px;
+            background-color: var( --color-primary-dark ) !important;
+
+            .ant-typography {
+
+                color: #fff;
+
+            }
+
+        }
+
+        &.ant-layout-has-sider {
+
+            position: relative;
+
+            .ant-layout-sider {
+
+                will-change: auto;
+
+            }
+
+            .ant-menu {
+
+                &.ant-menu-inline-collapsed {
+
+                    >.ant-menu-item,
+                    > .ant-menu-submenu-title {
+
+                        opacity: 0;
+
+                    }
+
+                }
+
+                > &-item,
+                > &-submenu-title {
+
+                    padding: 0 16px !important;
+                    opacity: 1;
+                    transition-property: opacity !important;
+
+                }
+
+            }
+
+        }
+
+        .anticon-menu {
+
+            color: #fff;
+
+        }
+
+        // Tables
+        .ant-table-wrapper {
+
+            &,
+            .ant-spin-nested-loading,
+            .ant-spin-container,
+            .ant-table-container,
+            .ant-table-content,
+            .ant-table-empty table {
+
+                height: 100%;
+
+            }
+
+            .ant-table-container {
+
+                overflow: auto;
+
+            }
+
+            .ant-table {
+
+                height: calc( 100% - 80px );
+
+                &.ant-table-empty {
+
+                    height: calc( 100% - 40px );
+
+                    .ant-table-cell {
+
+                        border-bottom: 0;
+
+                    }
+
+                }
+
+                .ant-table-footer {
+
+                    text-align: right;
+
+                    > button {
+
+                        margin-right: 16px;
+
+                        &:last-child {
+
+                            margin-right: 0;
+
+                        }
+
+                    }
+
+                }
+
+                .ant-table-column-title {
+
+                    font-weight: 700;
+
+                }
+
+                .ant-table-tbody > tr > td {
+
+                    border-color: #ccc;
+
+                }
+
+                th,
+                td {
+
+                    &[aria-hidden="true"] {
+
+                        display: none;
+
+                    }
+
+                }
+
+            }
+
+            .ant-table-pagination {
+
+                position: relative;
+                z-index: 5;
+
+            }
+
+        }
+
+        // Tabs
+        .ant-tabs {
+
+            &,
+            .ant-tabs-content {
+
+                height: 100%;
+
+            }
+
+            &-card {
+
+                > .ant-tabs-nav {
+
+                    margin-bottom: 0;
+
+                }
+                > .ant-tabs-content-holder {
+
+                    padding: 32px 24px;
+                    background-color: #fff;
+
+                }
+
+                // Nested AntTabs
+                .ant-tabs {
+
+                    margin-left: -24px;
+
+                }
+
+            }
+
+        }
+
+        // Pages inside an Ant Layout
+        .page {
+
+            > .ant-page-header {
+
+                flex: 0 1 auto;
+                padding: 8px 24px 14px;
+
+                h1.ant-typography {
+
+                    margin-bottom: 0;
+
+                }
+
+            }
+
+            > .ant-table-wrapper {
+
+                flex: 0 1 100%;
+                padding: 0 .5rem;
+
+            }
+
+        }
+
+    }
+
+    // Dropdown
+    .ant-table-filter-dropdown {
+
+        padding: 8px;
+
+        .ant-input,
+        .ant-select,
+        .ant-radio-group,
+        .ant-checkbox-group {
+
+            display: block;
+            width: 210px;
+            margin-bottom: 8px;
+
+            .ant-radio-wrapper,
+            .ant-checkbox-wrapper {
+
+                display: block;
+                margin-right: 0;
+                padding: 5px 12px;
+
+                &:hover {
+
+                    background-color: #f5f5f5;
+
+                }
+                .ant-checkbox {
+
+                    display: inline-block;
+
+                }
+
+            }
+
+            .ant-radio-wrapper-checked,
+            .ant-checkbox-wrapper-checked {
+
+                color: var( --ant-primary-color );
+                background-color: var( --ant-primary-1 );
+
+            }
+
+        }
+
+        .ant-btn {
+
+            width: 90px;
+
+        }
+
+    }
+
+    // Select
+    .ant-select-dropdown {
+
+        .ant-select-item-option-content {
+
+            display: flex;
+
+            > span {
+
+                flex: 1;
+
+            }
+
+        }
+
+    }
+
+    // Forms
+    .ant-form {
+
+        &.ant-form-horizontal {
+
+            .ant-layout-sider {
+
+                .ant-form-item {
+
+                    margin-bottom: 4px;
+
+                    .ant-form-item-label {
+
+                        text-align: left;
+
+                        > label {
+
+                            white-space: normal;
+
+                            &::after {
+
+                                display: none;
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            .ant-form-vertical {
+
+                .ant-form-item {
+
+                    margin-bottom: 8px;
+
+                    .ant-form-item-label {
+
+                        overflow: visible;
+
+                        > label {
+
+                            font-size: 12.5px;
+
+                        }
+
+                    }
+
+                    .ant-form-item-label,
+                    .ant-form-item-control {
+
+                        flex-basis: 100%;
+                        flex-grow: 1;
+                        width: 100%;
+                        max-width: 100%;
+                        padding-bottom: 4px;
+                        white-space: nowrap;
+
+                    }
+
+                    .ant-picker {
+
+                        width: 100%;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    // TODO: spostare in PageLayoutTable.scss
+    .page-layout-table {
+
+        .ant-page-header-heading {
+
+            align-items: center;
+
+        }
+
+    }
+
+    // TODO: non è chiaro dove questo venga usato, forse va dentro al componente della modale?
+    // Advanced search form
+    .lot-advanced-search-form {
+
+        .ant-row.ant-form-item {
+
+            padding-right: 1.5rem;
+
+        }
+
+        .ant-input-number {
+
+            width: 100%;
+
+        }
+
+    }
+
+    .ant-modal {
+
+        .ant-modal-title {
+
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 1.35;
+
+        }
+
+    }
+
+    .ant-cascader-menu-item-active:not(.ant-cascader-menu-item-disabled),
+    .ant-cascader-menu-item-active:not(.ant-cascader-menu-item-disabled):hover {
+
+        background-color: #e6fffb;
+
+    }
+
+}

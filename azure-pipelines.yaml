@@ -1,0 +1,138 @@
+####
+## Specify here the triggers for this pipeline.
+## See: https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/azure-repos-git?view=azure-devops&tabs=yaml#ci-triggers
+####
+trigger: none
+
+####
+## Questi parametri possono essere impostati al momendo dell'avvio della pipeline.
+## Se la pipe si avvia mediante trigger automatico (es. Continuous Integration), vengono assunti i valori di default
+####
+parameters:
+# ======= WorkFlow Parameters ======
+  - name: desiredBuildId
+    displayName: Build Id to resume (set to 'newbuild' to start a new build)
+    default: 'New Build'
+  - name: forRelease
+    displayName: For Release
+    type: boolean
+    default: false
+
+# ===================================================
+# ==================== Variables ====================
+variables:
+  - group: 'Common build-time Configurations'
+
+  - group: 'backoffice-shiva-shiva-fe variable group'
+
+  #TODO: abilitare
+  #- group: 'backoffice-shiva-fe-prod variable group'  
+
+  - name: warmUp
+    value: azure-pipelines-warmUp.yaml@self
+
+  - name: buildFlavour
+    value: /build/neprix/vue-s3.yaml@templates
+
+  - name: releaseFlavour
+    value: /release/neprix/copy-s3.yaml@templates
+
+  - name: testFlavour
+    value: /build/neprix/tests/no-op.yaml@templates
+
+  - name: releaseContainer
+    value: 'public.ecr.aws/neprix/azp-nodejs-16-builder:RELEASE'
+
+  - name: buildContainer
+    value: 'public.ecr.aws/neprix/azp-nodejs-16-builder:RELEASE'
+
+  # definito in devops library - secure files
+  - name: sshkey_filename
+    value: 'ssh-azdevops-service'
+
+  # non toccare
+  - name: kubeConfig_filename
+    value: kubeconfig
+
+  # definito in devops service Connection
+  - name: endpoint_aws
+    value: backoffice-shiva-fe-aws
+
+  # abilita o meno la build di nginx
+  - name: nginx
+    value: false
+
+  # definisce il nome del progetto in k8 (senza estensione ambiente)
+  - name: progetto
+    value: shiva-frontend
+
+  # # definisce il namespace k8 (senza estensione ambiente)
+  # - name: namespace
+  #   value: quimmo
+
+  # definisce la versione di nodejs
+  - name: nodejsVersion
+    value: 16.18.0
+
+  - name: packageManager
+    value: yarn
+
+  - name: vueVersion
+    value: 3
+    
+  - name: cloudfrontInvalidate
+    value: true    
+
+
+  - name: SonarProjectTags
+    value: asset-shiva,group-Meraki
+
+# ===================================================
+# ==================== Resources ====================
+# ===================================================
+resources:
+  repositories:
+  - repository: templates
+    type: git
+    name: SDLC/PipelineTemplates
+    ref: master
+
+# ===================================================
+# ======================= Main ======================
+# ===================================================
+extends:
+  template: processes/neprix-generic-process.yaml@templates
+  parameters:
+    ${{ each parameter in parameters }}:
+      ${{ parameter.Key }}: ${{ parameter.Value }}
+
+    flavour:
+      #warmUp: ${{ variables['warmUp'] }}
+      build: ${{ variables['buildFlavour'] }}
+      release: ${{ variables['releaseFlavour'] }}
+      releaseContainer: ${{ variables['releaseContainer'] }}
+      serviceDb: false
+      #microservizio: ${{ variables['microservizio'] }}
+      test: ${{ variables['testFlavour'] }}
+      #buildContainer: ${{ variables['buildContainer'] }}
+      nodejsVersion: ${{ variables['nodejsVersion']}}
+      progetto: ${{ variables['progetto'] }}
+      packageManager: ${{ variables['packageManager'] }}
+      vueVersion: ${{ variables['vueVersion'] }}
+
+    testParameters:
+      - name: namespaceSuffix
+        value: test
+
+    uatParameters:
+      - name: namespaceSuffix
+        value: uat
+
+    prodParameters:
+      - name: namespaceSuffix
+        value: prod
+    releaseParameters:
+      # - name: WEBVUE
+      #   value: web-vue
+      # - name: s3
+      #   value: copy

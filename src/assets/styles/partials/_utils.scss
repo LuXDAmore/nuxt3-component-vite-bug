@@ -1,0 +1,39 @@
+// ?: Maybe this file not useful
+// Width and Height
+.h {
+    &--full {
+
+        height: 100%;
+
+    }
+
+}
+
+// Text colors
+.text {
+
+    &--primary {
+
+        color: var( --color-primary ) !important;
+
+    }
+
+}
+
+// Spacers
+.spacer {
+
+    flex: 1;
+
+}
+
+// Opacity
+.opacity {
+
+    &--0 {
+
+        opacity: 0;
+
+    }
+
+}

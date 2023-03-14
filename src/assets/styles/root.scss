@@ -1,0 +1,14 @@
+:root {
+
+    // Colors - Automation
+    @include print-colors-vars;
+
+    // Font - Automation
+    @include print-fonts-vars;
+
+    // Breakpoints - Automation
+    @include print-breakpoints-vars;
+
+    font-size: 16px;
+
+}

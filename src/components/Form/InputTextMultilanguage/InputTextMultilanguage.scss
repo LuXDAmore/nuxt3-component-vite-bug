@@ -1,0 +1,16 @@
+.input-text-multilanguage {
+
+    &-select {
+
+        width: 69px !important;
+        max-width: 69px;
+
+        @include deep( ".ant-select-arrow" ) {
+
+            right: 12px !important;
+
+        }
+
+    }
+
+}

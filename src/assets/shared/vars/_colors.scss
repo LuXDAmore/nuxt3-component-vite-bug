@@ -1,0 +1,73 @@
+// Colors
+$colors: (
+    // Background
+    "background": (
+        "base": #fafafa,
+        "dark": #f6f6f6,
+        "darker": #eaeaeb,
+    ),
+    // Basecolors
+    "basecolor": (
+        "base": #282e33,
+        "90": #3e4347,
+        "80": #53585c,
+        "70": #696d70,
+        "60": #7e8285,
+        "50": #949799,
+        "40": #a9abad,
+        "30": #bfc0c2,
+        "20": #d4d5d6,
+        "10": #eaeaeb,
+        "3": #f8f8f8,
+    ),
+    // Social
+    "social": (
+        "facebook": #4267b2,
+        "facebook-dark": #2f4a80,
+        "google": #4285f4,
+        "google-dark": #005ac7,
+    ),
+    // Messages
+    "success": (
+        "base": #00bb7e,
+        "darker": hsla( 161deg 100% 39% / 100% ),
+        "dark": #288f6d,
+        "lighter": hsla( 161deg 100% 94% / 100% ),
+        "light": hsla( 161deg 100% 69% / 100% ),
+    ),
+    "danger": (
+        "base": #f30b0b,
+        "darker": hsla( 0deg 92% 39% / 100% ),
+        "dark": hsla( 0deg 92% 49% / 100% ),
+        "lighter": hsla( 0deg 92% 94% / 100% ),
+        "light": hsla( 0deg 92% 69% / 100% ),
+    ),
+    "warning": (
+        "base": #e68f26,
+        "darker": hsla( 33deg 80% 39% / 100% ),
+        "dark": hsla( 33deg 80% 49% / 100% ),
+        "lighter": hsla( 33deg 80% 94% / 100% ),
+        "light": hsla( 33deg 80% 69% / 100% ),
+    ),
+    "info": (
+        "base": #2d8eff,
+        "darker": hsla( 213deg 100% 39% / 100% ),
+        "dark": hsla( 213deg 100% 49% / 100% ),
+        "lighter": hsla( 213deg 100% 94% / 100% ),
+        "light": hsla( 213deg 100% 69% / 100% ),
+    ),
+    "text": (
+        "base": #282e33,
+        "darker": hsla( 208deg 13% 39% / 100% ),
+        "dark": hsla( 208deg 13% 49% / 100% ),
+        "lighter": hsla( 208deg 13% 94% / 100% ),
+        "light": hsla( 208deg 13% 69% / 100% ),
+    ),
+    // Base per i portali
+    "primary": (
+        "base": #08979c,
+        "dark": #005153,
+    ),
+    "secondary": (),
+    "tertiary": (),
+) !default;

@@ -1,0 +1,14 @@
+.select-lots {
+
+    .ant-select-item-option-content {
+        
+        > span {
+
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+        }
+
+    }
+
+}

@@ -1,0 +1,7 @@
+{
+    "extends": "./src/.nuxt/tsconfig.json",
+    "compilerOptions": {
+        "strict": true,
+        "types": ["@types/lodash", "@pinia/nuxt"]
+    }
+}

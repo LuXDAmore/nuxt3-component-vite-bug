@@ -1,0 +1,20 @@
+.error-container {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    padding: 16px;
+    font-size: 1.5rem;
+    text-align: center;
+
+    .status-code {
+
+        color: var( --color-danger-darker );
+        font-size: 4rem;
+
+    }
+
+}

@@ -1,0 +1,35 @@
+{
+    "version": "0.2",
+    "ignorePaths": [],
+    "dictionaryDefinitions": [],
+    "dictionaries": [],
+    "words": [
+        "amazoncognito",
+        "antd",
+        "codecov",
+        "difformita",
+        "isequal",
+        "nturnjpf",
+        "nuxi",
+        "nuxtjs",
+        "ofetch",
+        "ohmyfetch",
+        "pinia",
+        "rilottizzato",
+        "Sider",
+        "vueuse"
+    ],
+    "ignoreWords": [
+        "1uevjpl27j4da28ggguhdq62p5",
+        "2s1b4f4hjonasvtfhrh81dtac",
+        "5ptcc55845ejjo99hf9n92euk1",
+        "9pg908eur9joj5nd06hojr22a",
+        "gwaf",
+        "unplugin",
+        "btns",
+        "illimity",
+        "nuxt",
+        "pubblicita"
+    ],
+    "import": []
+}
