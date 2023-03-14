@@ -158,6 +158,11 @@
                       , { application } = useRuntimeConfig()
                       , pageTitle = application?.meta?.title || ''
                       , isCollapsed = ref<boolean>( true )
+                      , toggleIsCollapsed = (): void => {
+
+                          isCollapsed.value = ! isCollapsed.value;
+
+                      }
                       , sidebarMenu = [
                           {
                               key: 'affidamenti',
@@ -181,15 +186,6 @@
                 ConfigProvider.config(
                     { theme: { primaryColor } },
                 );
-
-                /**
-                 *
-                 */
-                function toggleIsCollapsed(): void {
-
-                    isCollapsed.value = ! isCollapsed.value;
-
-                }
 
                 return {
 
