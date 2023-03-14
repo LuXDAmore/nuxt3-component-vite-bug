@@ -53,14 +53,5 @@ Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/prese
 
 [Vue Js Docs](https://vuejs.org/guide/typescript/overview.html#takeover-mode)
 
-## Docker
-
-[Repo](https://dev.azure.com/illimitybank/abilio/_git/magazzino-lotti?path=%2Freadme.md)
-
-## Design
-
-[Prototipo](https://www.justinmind.com/usernote/tests/48697045/72164578/72164580/index.html#/screens/d12245cc-1680-458d-89dd-4f0d7fb22724)
-
-
 ## Git Flow
 [Git flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
