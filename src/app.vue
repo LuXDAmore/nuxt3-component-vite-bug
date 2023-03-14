@@ -20,7 +20,7 @@
     import { storeToRefs } from 'pinia';
 
     // UseStore
-    import { useCategoriesTreeStore, useCmsStore } from '~/store';
+    import { useCmsStore } from '~/store';
 
     // Export
     export default defineComponent(
@@ -36,17 +36,12 @@
                     // Config
                     , { application } = useRuntimeConfig()
                     , pageTitle = application?.meta?.title || ''
-                    // Categories
-                    , categoriesTreeStore = useCategoriesTreeStore()
-                    , { getCategoriesTreeItems } = categoriesTreeStore
                 ;
 
                 // Head
                 useHead(
                     { title: computed( () => `${ title.value || pageTitle || '' }` ) }
                 );
-
-                getCategoriesTreeItems();
 
                 return {};
 

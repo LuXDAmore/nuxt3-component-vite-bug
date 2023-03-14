@@ -3,7 +3,7 @@ import { acceptHMRUpdate, defineStore } from 'pinia';
 
 // Css to JS
 // @ts-ignore:next-line Not valid because it's a SCSS file
-import variables from '~/assets/styles/exports.module.scss';
+import variables from '~/assets/styles/exports.module.scss'; // eslint-disable-line import/extensions
 
 // Interface
 interface CssVariables {

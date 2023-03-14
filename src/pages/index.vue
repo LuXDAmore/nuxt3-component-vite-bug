@@ -5,7 +5,7 @@
             <template #title>
                 <a-typography-title :level="2" strong>
 
-                    Benvenuti su Shiva!
+                    Welcome
 
                 </a-typography-title>
             </template>
