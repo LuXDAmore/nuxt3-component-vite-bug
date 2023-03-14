@@ -24,11 +24,11 @@ export default defineNuxtConfig(
                 charset: 'utf-16',
                 meta: [
                     {
-                        content: process.env.NUXT_DESCRIPTION || '',
+                        content: process.env.NUXT_DESCRIPTION || 'Component not found in vite.js',
                         name: 'description',
                     },
                 ],
-                title: process.env.NUXT_TITLE || '',
+                title: process.env.NUXT_TITLE || 'TEST BUG',
                 viewport: 'width=device-width,initial-scale=1',
             },
         },
