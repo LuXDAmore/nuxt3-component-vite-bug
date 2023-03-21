@@ -71,6 +71,7 @@
         "lodash": "^4.17.21",
         "nuxt": "3.2.3",
         "pinia": "^2.0.33",
+        "unimport": "^3.0.3",
         "unplugin-vue-components": "^0.24.0",
         "vue-request": "^2.0.0-rc.4",
         "vue-router": "^4.0.13"
