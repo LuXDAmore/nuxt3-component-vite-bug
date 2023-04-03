@@ -1,9 +1,6 @@
 // Types
 import { AmplifyConfigExtended } from '~/types';
 
-// Built-in
-import { useRuntimeConfig } from '#imports';
-
 // Store
 import { storeToRefs } from 'pinia';
 

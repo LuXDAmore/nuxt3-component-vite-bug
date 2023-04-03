@@ -8,14 +8,6 @@
 
 <script lang="ts">
 
-    // Built-in
-    import {
-        computed,
-        defineComponent,
-        useHead,
-        useRuntimeConfig,
-    } from '#imports';
-
     // Store
     import { storeToRefs } from 'pinia';
 

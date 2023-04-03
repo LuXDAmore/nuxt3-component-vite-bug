@@ -2,9 +2,6 @@
 // import { Auth } from '@aws-amplify/auth';
 // import { Amplify } from '@aws-amplify/core';
 
-// Built-in
-import { useCognitoConfig } from '#imports';
-
 // Store
 import { acceptHMRUpdate, defineStore } from 'pinia';
 

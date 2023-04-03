@@ -19,9 +19,6 @@
     // AntDesign - Components
     import { PageHeader, TypographyTitle } from 'ant-design-vue';
 
-    // Built-in
-    import { defineComponent } from '#imports';
-
     // Component
     export default defineComponent(
         {

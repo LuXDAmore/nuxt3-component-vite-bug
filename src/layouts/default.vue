@@ -111,13 +111,6 @@
     import { locale } from 'dayjs';
     import 'dayjs/locale/it'; // eslint-disable-line import/no-unassigned-import
 
-    // Built-in
-    import {
-        defineComponent,
-        ref,
-        useRuntimeConfig,
-    } from '#imports';
-
     // Constants
     import { FORM_VALIDATION_MESSAGES_TRANSLATED } from '~/constants';
 

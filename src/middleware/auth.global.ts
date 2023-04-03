@@ -1,6 +1,3 @@
-// Built-in
-import { defineNuxtRouteMiddleware } from '#imports';
-
 // // UseStore
 // import { useCognitoStore } from '~/store';
 
