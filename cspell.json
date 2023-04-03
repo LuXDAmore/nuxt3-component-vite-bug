@@ -17,6 +17,7 @@
         "pinia",
         "rilottizzato",
         "Sider",
+        "unimport",
         "vueuse"
     ],
     "ignoreWords": [
